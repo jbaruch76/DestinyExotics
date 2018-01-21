@@ -1,4 +1,4 @@
-import { Container, Menu, Image } from 'semantic-ui-react';
+import { Menu, Image, Card } from 'semantic-ui-react';
 import React, { Component } from 'react'
 
 
@@ -7,10 +7,10 @@ const Header = (props) => {
     <div>
       <Menu fixed="top" size="large">
         <Menu.Item header>
-          Logo
+          Destiny Exotic Collector
         </Menu.Item>
-        <Menu.Item>
-          Login
+        <Menu.Item as="a">
+          Authorize
         </Menu.Item>
       </Menu>
     </div>

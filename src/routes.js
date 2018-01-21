@@ -9,12 +9,10 @@ class Routes extends Component {
   render() {
     return (
       <div>
-      <Header />
       <Router history={history}>
         <Main>
           <Switch>
-            <Route path="/auth" component={ Main } />
-            <Route path="/" component = { Main } />
+            <Route path="/auth" />
           </Switch>
         </Main>
       </Router>
