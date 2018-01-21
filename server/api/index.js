@@ -44,6 +44,7 @@ const exoticsArr = [
 
 let exoticsObjArr = [];
 
+
 let queries = exoticsArr.map(exoticId => {
   return 'SELECT json FROM DestinyInventoryItemDefinition WHERE id = ' + exoticId;
 });

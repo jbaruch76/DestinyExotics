@@ -54,18 +54,18 @@ startListening();
 
 // The Traveler
 
-// var Traveler = require('the-traveler').default;
-// const Enums = require('the-traveler/build/enums')
-// const Manifest = require('the-traveler/build/Manifest').default;
-// const traveler = new Traveler({
-//   apikey: '87d34ac33b6d40a09196d6f1f6bc308f',
-//   userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
-//   oauthClientId: '23344',
-//   oauthClientSecret: 'HmKygtFiG9jlPAuhp29NHnPx7Xu-isnt8OREMtXuC3E',
-//   debug: true
-// });
-// const authUrl = traveler.generateOAuthURL();
-// console.log(authUrl)
+var Traveler = require('the-traveler').default;
+const Enums = require('the-traveler/build/enums')
+const Manifest = require('the-traveler/build/Manifest').default;
+const traveler = new Traveler({
+  apikey: '87d34ac33b6d40a09196d6f1f6bc308f',
+  userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+  oauthClientId: '23344',
+  oauthClientSecret: 'HmKygtFiG9jlPAuhp29NHnPx7Xu-isnt8OREMtXuC3E',
+  debug: true
+});
+const authUrl = traveler.generateOAuthURL();
+console.log(authUrl)
 // //const public = traveler.getPublicMilestones().then((milestones)=> //console.log(milestones))
 
 // traveler.getDestinyManifest().then(result => {

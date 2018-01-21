@@ -12,6 +12,7 @@ const traveler = new Traveler({
   debug: true
 });
 
+
 router.get('/', (req, res, next) => {
   let code = req.query.code;
   console.log('code', code)
@@ -33,18 +34,26 @@ router.get('/', (req, res, next) => {
   // traveler.getProfile('1', '4611686018428389623')
   // .then(response => console.log(response));
   if (!traveler.oauth) {
-
+    console.log('code', code)
     traveler.getAccessToken(code)
     .then(oauth => {
       traveler.oauth = oauth;
     })
-    .then((auth) => {
-      console.log('successfull authorization')
-      console.log(auth)
-      res.json(auth)
+    .then(() => {
+      console.log('successful authorization')
+      console.log('traveler', traveler.oauth.membership_id)
+      //res.json(traveler.oauth)
     })
+    .then(
+      traveler.getProfile('2', '4611686018428389623', { components: ['500']})
+      .then((profile) => {
+        res.json(profile.Response.profileKiosks.data.kioskItems)
+      })
+      .catch(err => console.log(err))
+    )
     .catch(err => console.log(err));
   }
-  else (res.send(traveler.oauth))
+  else (res.json(traveler.oauth))
+
 });
 
