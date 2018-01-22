@@ -47,13 +47,23 @@ router.get('/', (req, res, next) => {
     .then(
       traveler.getProfile('2', '4611686018428389623', { components: ['500']})
       .then((profile) => {
-        res.json(profile.Response.profileKiosks.data.kioskItems)
+        console.log('got profile')
+        let kioskItems = profile.Response.profileKiosks.data.kioskItems;
+        let missingItems = kioskItems['622587395'].filter(item => item['canAcquire']===false)
+        res.json(missingItems)
       })
       .catch(err => console.log(err))
     )
     .catch(err => console.log(err));
   }
-  else (res.json(traveler.oauth))
-
+  else {
+    traveler.getProfile('2', '4611686018428389623', { components: ['500']})
+  .then((profile) => {
+    let kioskItems = profile.Response.profileKiosks.data.kioskItems;
+        let missingItems = kioskItems['622587395'].filter(item => item['canAcquire']===false)
+        res.json(missingItems)
+  })
+  .catch(err => console.log(err))
+  }
 });
 

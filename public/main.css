@@ -7,3 +7,12 @@ html body {
 #nav {
   background-color: #BDBDBD
 }
+
+.brightness {
+  background-color: white;
+  display: inline-block;
+
+}
+.brightness img:hover {
+  opacity: .5;
+}

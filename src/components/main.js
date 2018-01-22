@@ -4,11 +4,13 @@ import { Container, Menu, Image, Card, Item, Button } from 'semantic-ui-react';
 import { fetchExotics } from '../store/exotics';
 import { connect } from 'react-redux';
 import ItemGroup from 'semantic-ui-react/dist/commonjs/views/Item/ItemGroup';
+import { fetchMissingExotics } from '../store/missingExotics';
 
 class Main extends Component  {
 
   componentDidMount() {
     this.props.loadExotics();
+    this.props.loadMissingExotics();
   }
   render() {
     console.log(this.props.exotics)
@@ -36,12 +38,13 @@ class Main extends Component  {
   }
 }
 
-const mapState = ({exotics}) => ({
-  exotics
+const mapState = ({exotics, missingExotics}) => ({
+  exotics, missingExotics
 })
 
 const mapDispatch = dispatch => ({
-  loadExotics: () => dispatch(fetchExotics())
+  loadExotics: () => dispatch(fetchExotics()),
+  loadMissingExotics: () => dispatch(fetchMissingExotics())
 });
 
 export default connect(mapState, mapDispatch)(Main);
